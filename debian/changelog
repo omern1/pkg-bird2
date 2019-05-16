@@ -1,3 +1,9 @@
+bird2 (2.0.4-0~bionic0+benjojo1) bionic; urgency=medium
+
+  * Import bird 2.0.4
+
+ -- Ben Cartwright-Cox <jpmenil@exoscale.ch>  Thu, 16 May 2019 18:23:00 +0700
+
 bird2 (2.0.3-0~bionic0+exo1) bionic; urgency=medium
 
   * Import bird 2.0.3
