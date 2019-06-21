@@ -5,8 +5,9 @@ Build-Depends: debhelper (>= 10~),
                bison,
                flex,
                libncurses5-dev,
-               libreadline-dev
-Maintainer: Vincent Bernat <bernat@debian.org>
+               libreadline-dev,
+               libssh-dev
+Maintainer: Cynthia Revstrom <me@cynthia.re>
 Standards-Version: 3.9.6
 Homepage: http://bird.network.cz/
 

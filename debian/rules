@@ -8,7 +8,7 @@ override_dh_auto_configure:
 	dh_auto_configure -- \
 	  --prefix=/usr --sysconfdir=/etc/bird2 --mandir=\$${prefix}/share/man \
 	  --infodir=\$${prefix}/share/info --localstatedir=/var --with-runtimedir=/run/bird2 \
-	  --enable-client --with-protocols=all
+	  --enable-client --with-protocols=all --enable-libssh
 
 override_dh_systemd_start:
 	dh_systemd_start --restart-after-upgrade
