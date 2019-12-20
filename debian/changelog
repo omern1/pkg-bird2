@@ -1,3 +1,9 @@
+bird2 (2.0.7-0~bionic0+cynthiare1) bionic; urgency=medium
+
+  * Import bird 2.0.7
+
+ -- Cynthia Revstrom <me@cynthia.re>  Fri, 20 Dec 2019 16:35:00 +0100
+
 bird2 (2.0.4-0~bionic0+cynthiare1) bionic; urgency=medium
 
   * Enable LibSSH for RPKI
