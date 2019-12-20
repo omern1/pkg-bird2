@@ -1,6 +1,6 @@
 build:
-	wget "ftp://bird.network.cz/pub/bird/bird-2.0.4.tar.gz"
-	sh -c 'cat bird-2.0.4.tar.gz | sha256sum | grep '676010b7517d4159b9af37401c26185f561ffcffeba73690a2ef2fad984714de  -' || exit 1'
-	tar -xvzf bird-2.0.4.tar.gz
-	sh -c 'mv ./bird-2.0.4/* ./'
+	wget "ftp://bird.network.cz/pub/bird/bird-2.0.7.tar.gz"
+	sh -c 'cat bird-2.0.7.tar.gz | sha256sum | grep '631d2b58aebdbd651aaa3c68c3756c02ebfe5b1e60d307771ea909eeaa5b1066  -' || exit 1'
+	tar -xvzf bird-2.0.7.tar.gz
+	sh -c 'mv ./bird-2.0.7/* ./'
 	dh binary
