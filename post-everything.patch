@@ -1,0 +1,20 @@
+diff --git a/proto/bgp/packets.c b/proto/bgp/packets.c
+index ee031c05..987ef10c 100644
+--- a/proto/bgp/packets.c
++++ b/proto/bgp/packets.c
+@@ -1304,6 +1304,7 @@ bgp_rte_update(struct bgp_parse_state *s, net_addr *n, u32 path_id, rta *a0)
+   if (!a0)
+   {
+     /* Route withdraw */
++    debug("withdraw %N %s %d\n", n, s->last_src->proto->name, path_id);
+     rte_update3(&s->channel->c, n, NULL, s->last_src);
+     return;
+   }
+@@ -1321,6 +1322,7 @@ bgp_rte_update(struct bgp_parse_state *s, net_addr *n, u32 path_id, rta *a0)
+ 
+   rta *a = rta_clone(s->cached_rta);
+   rte *e = rte_get_temp(a);
++  debug("%N %s %d\n", n, a->src->proto->name, path_id);
+ 
+   e->pflags = 0;
+   e->u.bgp.suppressed = 0;
