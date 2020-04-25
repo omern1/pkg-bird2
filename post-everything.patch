@@ -14,7 +14,7 @@ index ee031c05..987ef10c 100644
  
    rta *a = rta_clone(s->cached_rta);
    rte *e = rte_get_temp(a);
-+  debug("%N %s %d\n", n, a->src->proto->name, path_id);
++  debug("update %N %s %d\n", n, a->src->proto->name, path_id);
  
    e->pflags = 0;
    e->u.bgp.suppressed = 0;
