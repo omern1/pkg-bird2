@@ -1,5 +1,27 @@
+diff --git a/nest/rt-table.c b/nest/rt-table.c
+index 0844070d..5fe45ed3 100644
+--- a/nest/rt-table.c
++++ b/nest/rt-table.c
+@@ -1421,6 +1421,17 @@ rte_recalculate(struct channel *c, net *net, rte *new, struct rte_src *src)
+     new->lastmod = current_time();
+ 
+   /* Log the route change */
++
++  if (new) {
++    eattr *e = ea_find(new->attrs->eattrs, EA_CODE(PROTOCOL_BGP, BA_AS_PATH));
++    if (e && e->u.ptr){
++            char buf[8916];
++            as_path_format(e->u.ptr, buf, 8916);
++            // debug("update %N %s %d\n", n, a->src->proto->name, path_id);
++            debug("update %N %s @%s@\n",new->net->n.addr, src->proto->name, buf);
++    }
++  }
++  
+   if (p->debug & D_ROUTES)
+     {
+       if (new_ok)
 diff --git a/proto/bgp/packets.c b/proto/bgp/packets.c
-index ee031c05..987ef10c 100644
+index c3bd600a..b533d529 100644
 --- a/proto/bgp/packets.c
 +++ b/proto/bgp/packets.c
 @@ -1304,6 +1304,7 @@ bgp_rte_update(struct bgp_parse_state *s, net_addr *n, u32 path_id, rta *a0)
@@ -10,11 +32,4 @@ index ee031c05..987ef10c 100644
      rte_update3(&s->channel->c, n, NULL, s->last_src);
      return;
    }
-@@ -1321,6 +1322,7 @@ bgp_rte_update(struct bgp_parse_state *s, net_addr *n, u32 path_id, rta *a0)
- 
-   rta *a = rta_clone(s->cached_rta);
-   rte *e = rte_get_temp(a);
-+  debug("update %N %s %d\n", n, a->src->proto->name, path_id);
- 
-   e->pflags = 0;
-   e->u.bgp.suppressed = 0;
+
